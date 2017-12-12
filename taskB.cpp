@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
+#include <cstring>
 
 using namespace std;
 
@@ -33,7 +35,8 @@ int countLine(char* pName){
 	int num_lines = 0;
 	ifstream myfile("example.txt");
 	
-	while(getline(myfile, pName)){
+	while(!myfile.eof()){
+		getline(myfile, pName)
 		++num_lines= 0;
 	}
 	cout << num_lines << "lines" << endl;
@@ -41,6 +44,7 @@ int countLine(char* pName){
 }
 
 int countChar(char* pName){
+	//char pName;
 	ifstream fin("example.txt");	
 	fin>>pName;
 	cout << strlen(pName) << "Characters" << endl;
